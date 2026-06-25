@@ -24,14 +24,17 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from datetime import date, datetime, timezone, timedelta
-
-_BRT = timezone(timedelta(hours=-3))
-def now_brt() -> datetime:
-    return datetime.now(tz=_BRT)
+from pathlib import Path
 from io import BytesIO
 import os
 import subprocess
 import time
+
+BASE_DIR = Path(__file__).parent
+
+_BRT = timezone(timedelta(hours=-3))
+def now_brt() -> datetime:
+    return datetime.now(tz=_BRT)
 
 # Módulos locais
 from database import (
